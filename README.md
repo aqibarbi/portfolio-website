@@ -1,73 +1,81 @@
 # Muhammad Aqib Javed | Portfolio
 
-Personal portfolio site. Vanilla HTML/CSS/JS, no framework, no build step.
+Personal portfolio site built with **Vanilla HTML, CSS and JavaScript** — no framework, no build step.
 
-**Live:** https://portfolio-muhammad-aqibjaved.netlify.app/
+![Portfolio Preview](assets/img/portfolio-preview.png)
+
+## Live Demo
+
+**[View Live Portfolio](https://portfolio-muhammad-aqibjaved.netlify.app/)**
 
 ## Sections
 
-- **Home** — intro, profession rotator, social links, resume link.
-- **About** — bio, resume link.
-- **Delivered Work** — real client project (Perth Dynamic Solutions), with client quote + proof-of-review lightbox.
-- **Projects** — practice builds, Swiper.js carousel, 8 cards.
-- **Work Experience / Education** — tabbed timeline (JS tab switcher).
-- **Services** — Frontend Development + WordPress Development, expandable cards.
-- **Contact** — click-to-copy email, WhatsApp link, social links.
-- **Footer** — auto-updating year via JS.
+- **Home** — intro, profession rotator, social links and resume link.
+- **About** — short bio and resume link.
+- **Delivered Work** — real client project for Perth Dynamic Solutions, including client feedback and proof-of-review lightbox.
+- **Projects** — selected practice builds presented with an interactive Swiper.js carousel.
+- **Work Experience / Education** — tabbed timeline with JavaScript interactions.
+- **Services** — Frontend Development and WordPress Development service cards.
+- **Contact** — click-to-copy email, WhatsApp and social links.
+- **Footer** — automatically updates the current year with JavaScript.
+
+## Features
+
+- Fully responsive design
+- Vanilla HTML, CSS & JavaScript
+- Smooth scroll animations
+- Interactive project carousel
+- Custom cursor and blob animations
+- Project lightbox
+- Copy-to-clipboard email
+- Responsive navigation
+- Mobile-friendly layout
 
 ## Tech
 
-- HTML5, CSS3
-- Vanilla JavaScript (tabs, custom cursor, blob animations, lightbox, copy-email, footer year)
-- [ScrollReveal](assets/js/scrollreveal.min.js) — scroll animations
-- [Anime.js](https://cdn.jsdelivr.net/npm/animejs/lib/anime.iife.min.js) — CDN
-- [Swiper.js](assets/js/swiper-bundle.min.js) — projects carousel
-- Self-hosted RemixIcon subset (`assets/css/remixicon-subset.css`, 9 icons used)
-- Fonts: Big Shoulders Display, IBM Plex Sans, IBM Plex Mono (Google Fonts)
+- HTML5
+- CSS3
+- Vanilla JavaScript
+- ScrollReveal.js — scroll animations
+- Anime.js — animations
+- Swiper.js — project carousel
+- Self-hosted RemixIcon subset
+- Fonts: Big Shoulders Display, IBM Plex Sans, IBM Plex Mono
 
 ## Structure
 
-```
-index.html
-assets/
-  css/
-    styles.css
-    remixicon-subset.css
-    swiper-bundle.min.css
-  js/
-    main.js
-    scrollreveal.min.js
-    swiper-bundle.min.js
-  img/
-    home-perfil.webp
-    favicon.png
-    PerthDynamicSolutions.webp
-    pds-review-proof.webp
-    Real Home (clone).webp
-    CV Maker clone.webp
-    Metal Defence(clone).webp
-    CAYUGA LAKE(clone).webp
-    Anthony Medina(Clone).webp
-    Houzez(Clone).webp
-    Focal Point Homes(Clone).webp
-    mc-duffers.webp
+```text
+portfolio-website/
+├── index.html
+└── assets/
+    ├── css/
+    ├── js/
+    ├── img/
+    │   ├── PDS/
+    │   └── clone screenshots/
+    └── ...
 ```
 
 ## Usage
 
-Open `index.html` in browser, or deploy to static host (Netlify, GitHub Pages, Vercel).
+Open `index.html` directly in a browser, or deploy the project to a static hosting service such as Netlify, GitHub Pages or Vercel.
 
-To add/update projects: duplicate a `.projects__card.swiper-slide` block inside `#projects .swiper-wrapper`, update image, title, tags, description, and live link.
+### Update Projects
 
-To add delivered work: duplicate `.delivered__card` block inside `#delivered .delivered__container`.
+Add or update project cards in `index.html` and place related images inside the appropriate `assets/img/` folder.
+
+### Update Delivered Work
+
+Update the Perth Dynamic Solutions project section with the latest project details, screenshots and client feedback when needed.
 
 ## Deployment
 
-Netlify: `portfolio-muhammad-aqibjaved.netlify.app`
+Live portfolio:
+
+**https://portfolio-muhammad-aqibjaved.netlify.app/**
 
 ## Contact
 
-- Email: maqibjaved.dev@gmail.com
-- LinkedIn: linkedin.com/in/muhammad-aqibjaved-webdev
-- GitHub: github.com/aqibarbi
-- Location: Bahawalpur, Pakistan
+**Email:** maqibjaved.dev@gmail.com  
+**GitHub:** https://github.com/aqibarbi  
+**Location:** Bahawalpur, Pakistan
