@@ -56,18 +56,6 @@ portfolio-website/
     └── ...
 ```
 
-## Usage
-
-Open `index.html` directly in a browser, or deploy the project to a static hosting service such as Netlify, GitHub Pages or Vercel.
-
-### Update Projects
-
-Add or update project cards in `index.html` and place related images inside the appropriate `assets/img/` folder.
-
-### Update Delivered Work
-
-Update the Perth Dynamic Solutions project section with the latest project details, screenshots and client feedback when needed.
-
 ## Deployment
 
 Live portfolio:
