@@ -3,20 +3,26 @@
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="description" content="Portfolio of Muhammad Aqib Javed, a frontend and WordPress developer in Bahawalpur, Pakistan, building responsive websites with HTML, CSS, JavaScript and WordPress.">
+      <meta name="description" content="Portfolio of Muhammad Aqib Javed, a frontend and WordPress developer in Bahawalpur, Pakistan building responsive websites with HTML, CSS and WordPress.">
+      <link rel="canonical" href="https://portfolio-muhammad-aqibjaved.netlify.app/">
 
       <!--=============== OPEN GRAPH / SOCIAL PREVIEW ===============-->
       <meta property="og:title" content="Muhammad Aqib Javed | Frontend & WordPress Developer">
       <meta property="og:description" content="Portfolio of Muhammad Aqib Javed — responsive websites with HTML, CSS, JavaScript and WordPress.">
-      <meta property="og:image" content="https://portfolio-muhammad-aqibjaved.netlify.app/assets/img/home-perfil.webp">
+      <meta property="og:image" content="https://portfolio-muhammad-aqibjaved.netlify.app/assets/img/og-image.webp">
+      <meta property="og:image:width" content="1200">
+      <meta property="og:image:height" content="630">
       <meta property="og:url" content="https://portfolio-muhammad-aqibjaved.netlify.app/">
       <meta property="og:type" content="website">
       <meta name="twitter:card" content="summary_large_image">
       <meta name="twitter:title" content="Muhammad Aqib Javed | Frontend & WordPress Developer">
-      <meta name="twitter:image" content="https://portfolio-muhammad-aqibjaved.netlify.app/assets/img/home-perfil.webp">
+      <meta name="twitter:image" content="https://portfolio-muhammad-aqibjaved.netlify.app/assets/img/og-image.webp">
 
       <!--=============== FAVICON ===============-->
-      <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+      <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+      <link rel="icon" href="assets/img/favicon.png" type="image/png">
+      <link rel="apple-touch-icon" href="assets/img/favicon-180.png">
+      <meta name="theme-color" content="#1B4FBD">
 
       <!--=============== GOOGLE FONTS (parallel load, was CSS @import) ===============-->
       <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,6 +39,30 @@
       <link rel="stylesheet" href="assets/css/styles.css">
 
       <title>Muhammad Aqib Javed | Frontend &amp; WordPress Developer</title>
+
+      <!--=============== JSON-LD STRUCTURED DATA ===============-->
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Muhammad Aqib Javed",
+        "url": "https://portfolio-muhammad-aqibjaved.netlify.app/",
+        "image": "https://portfolio-muhammad-aqibjaved.netlify.app/assets/img/home-perfil.webp",
+        "jobTitle": "Frontend & WordPress Developer",
+        "description": "Freelance frontend and WordPress developer building responsive, custom websites with HTML, CSS, JavaScript and WordPress.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bahawalpur",
+          "addressCountry": "PK"
+        },
+        "knowsAbout": ["HTML", "CSS", "JavaScript", "WordPress", "Bootstrap", "Tailwind CSS", "Frontend Development", "Web Development"],
+        "sameAs": [
+          "https://linkedin.com/in/muhammad-aqibjaved-webdev",
+          "https://github.com/aqibarbi"
+          "https://api.whatsapp.com/send?phone=923056494101&text=Hello"
+        ]
+      }
+      </script>
    </head>
    <body>
       <!--==================== HEADER ====================-->
@@ -57,6 +87,9 @@
                      <a href="#projects" class="nav__link">Projects</a>
                   </li>
                   <li>
+                     <a href="#work" class="nav__link">Experience</a>
+                  </li>
+                  <li>
                      <a href="#contact" class="nav__link">Contact</a>
                   </li>
                </ul>
@@ -77,6 +110,7 @@
                      Hello, I'm
                   </p>
                   <h1 class="home__name">Muhammad <br> Aqib Javed</h1>
+                  <a href="#contact" class="button home__cta">Let's Talk <i class="ri-arrow-right-up-long-line"></i></a>
                </div>
                <div class="home__image">
                   <div class="blob-animate"></div>
@@ -84,19 +118,20 @@
                </div>
                <div class="home__info">
                   <p class="home__split">
-                     Creative
+                     Web Developer
                   </p>
-                  <h2 class="home__profession-1">Web Developer</h2>
-                  <h2 class="home__profession-2"> Frontend Developer</h2>
-                  <h2 class="home__profession-2"> Open to Work</h2>
+                  <p class="home__profession-1"> Frontend Developer</p>
+                  <p class="home__profession-2"> WordPress Developer</p>
+                  <p class="home__profession-2"> Open to Freelance & Remote Work</p>
                </div>
                <div class="home__social">
-                  <a href="https://linkedin.com/in/muhammad-aqibjaved-webdev" target="_blank" class="home__social-link" aria-label="LinkedIn"><i class="ri-linkedin-box-line"></i></a>
-                  <a href="https://github.com/aqibarbi" target="_blank" class="home__social-link" aria-label="GitHub"><i class="ri-github-line"></i></a>
-                  <!-- <a href="https://bsky.app/profile/muhammad-aqib-dev.bsky.social" target="_blank" class="home__social-link"><i class="ri-bluesky-line"></i></a> -->
-                  <!-- <a href="https://gitlab.com/maqibjaved.dev" target="_blank" class="home__social-link"><i class="ri-gitlab-line"></i></a> -->
+                  <a href="https://linkedin.com/in/muhammad-aqibjaved-webdev" target="_blank" rel="noopener noreferrer" class="home__social-link" aria-label="LinkedIn"><i class="ri-linkedin-box-line"></i></a>
+                  <a href="https://github.com/aqibarbi" target="_blank" rel="noopener noreferrer" class="home__social-link" aria-label="GitHub"><i class="ri-github-line"></i></a>
+                  
+                  <!-- <a href="https://bsky.app/profile/muhammad-aqib-dev.bsky.social" target="_blank" rel="noopener noreferrer" class="home__social-link"><i class="ri-bluesky-line"></i></a> -->
+                  <!-- <a href="https://gitlab.com/maqibjaved.dev" target="_blank" rel="noopener noreferrer" class="home__social-link"><i class="ri-gitlab-line"></i></a> -->
                </div>
-               <a href="https://cv-aqib-javed.netlify.app/" target="_blank" class="home__cv">Resume <i class="ri-file-list-2-line"></i></a>
+               <a href="https://cv-aqib-javed.netlify.app/" target="_blank" rel="noopener noreferrer" class="home__cv">Resume <i class="ri-file-list-2-line"></i></a>
             </div>
             
          </section>
@@ -108,14 +143,14 @@
                <div class="about__data">
                   <h2 class="section__title">About <span>Me</span></h2>
                   <p class="about__description"> 
-                     I'm a <b>Frontend Developer</b> from Bahawalpur with 2+ years of experience building responsive, modern websites. I specialize in <b>HTML, CSS, Bootstrap, Tailwind CSS, JavaScript (ES6)</b> and <b>WordPress</b> — turning ideas into clean, fast, and functional websites that work great on every device.
+                     I'm a <b>Freelance Web Developer</b> and <b>Frontend Developer</b> from Bahawalpur, Pakistan, with 2+ years of experience building responsive, modern websites. I specialize in <b>HTML, CSS, Bootstrap, Tailwind CSS, JavaScript (ES6)</b> and <b>WordPress website development</b> — turning ideas into clean, fast, and functional custom websites that work great on every device.
                   </p>
-                  <a href="https://cv-aqib-javed.netlify.app/" target="_blank" class="button">Resume <i class="ri-file-list-2-line"></i></a>
+                  <a href="https://cv-aqib-javed.netlify.app/" target="_blank" rel="noopener noreferrer" class="button">Resume <i class="ri-file-list-2-line"></i></a>
                </div>
                <div class="about__image">
                   <div class="blob-animate"></div>
                   <div class="blob-animate"></div>
-                  <img src="assets/img/home-perfil.webp" alt="Muhammad Aqib Javed, Frontend Developer" class="about__perfil" width="800" height="937">
+                  <img src="assets/img/home-perfil.webp" alt="Muhammad Aqib Javed, Frontend Developer" class="about__perfil" width="800" height="937" loading="lazy">
                </div>
             </div>
          </section>
@@ -130,13 +165,13 @@
                <!-- delivered-1 -->
                <article class="delivered__card">
                   <div class="delivered__image">
-                     <img src="assets/img/PerthDynamicSolutions.webp" alt="Perth Dynamic Solutions WordPress  Custom Code" width="600" height="389">
+                     <img src="assets/img/PerthDynamicSolutions.webp" alt="Perth Dynamic Solutions WordPress custom site homepage" width="600" height="389" loading="lazy">
                   </div>
                   <div class="delivered__number">01</div>
                   <h3 class="delivered__title">Perth Dynamic Solutions</h3>
                   <p class="delivered__role">Custom WordPress Build</p>
                   <p class="delivered__description">
-                     Built a custom WordPress site from scratch for an Australian modular/prefab home company — custom child theme, ACF-powered product catalog with category filters, and a custom finish-selection configurator (cladding, flooring, cabinetry) per product.
+                     Built a custom WordPress site from scratch for an Australian modular/prefab home company — custom child theme, ACF-powered product catalog with category filters, and a custom finish-selection configurator (cladding, flooring, cabinetry) per product. Referred by the owner of SkillWays.
                   </p>
                   <div class="delivered__tags">
                      <span class="delivered__tag">WordPress</span>
@@ -147,13 +182,14 @@
                      "Professional, fast, efficient, value for money. Highly recommended. Extremely satisfied."
                      <span>— Hassan, Perth Dynamic Solutions</span>
                   </blockquote>
-                  <a href="assets/img/pds-review-proof.webp" target="_blank" class="delivered__proof js-lightbox"><i class="ri-check-line"></i> View original message</a>
-                  <a href="https://perthdynamicsolutions.com.au" target="_blank" class="delivered__link">Visit site <i class="ri-arrow-right-up-long-line"></i></a>
+                  <a href="assets/img/pds-review-proof.webp" target="_blank" rel="noopener noreferrer" class="delivered__proof js-lightbox"><i class="ri-check-line"></i> View original message</a>
+                  <a href="https://perthdynamicsolutions.com.au" target="_blank" rel="noopener noreferrer" class="delivered__link">Visit site <i class="ri-arrow-right-up-long-line"></i></a>
+                  <a href="https://github.com/aqibarbi/Perth-Dynamics-Solutions" target="_blank" rel="noopener noreferrer" class="delivered__link">View code <i class="ri-github-line"></i></a>
                </article>
                <!-- delivered-2 -->
                <!-- <article class="delivered__card">
                   <div class="delivered__image">
-                     <img src="assets/img/wordpress blog website.webp" alt="Illuminated Gospel blog redesign" width="600" height="389">
+                     <img src="assets/img/wordpress blog website.webp" alt="Illuminated Gospel blog redesign" width="600" height="389" loading="lazy">
                   </div>
                   <div class="delivered__number">02</div>
                   <h3 class="delivered__title">Illuminated Gospel</h3>
@@ -165,7 +201,7 @@
                      <span class="delivered__tag">WordPress</span>
                      <span class="delivered__tag">Elementor Pro</span>
                   </div>
-                  <a href="https://staging.illuminatedgospel.org/" target="_blank" class="delivered__link">Visit site <i class="ri-arrow-right-up-long-line"></i></a>
+                  <a href="https://staging.illuminatedgospel.org/" target="_blank" rel="noopener noreferrer" class="delivered__link">Visit site <i class="ri-arrow-right-up-long-line"></i></a>
                </article> -->
             </div>
          </section>
@@ -191,6 +227,7 @@
                            <h3 class="projects__title">
                               Real Home Ultra<br> Real Estate Website
                            </h3>
+                           <span class="projects__badge">Practice Build</span>
                            <div class="projects__tags">
                               <span class="projects__tag">HTML</span>
                               <span class="projects__tag">CSS</span>
@@ -202,8 +239,8 @@
                            </p>
                         </div>
                         <div class="projects__image">
-                           <img src="assets/img/Real Home (clone).webp" alt="project-thumbnail" class="projects__img" width="600" height="389">
-                           <a href="https://real-home-ultra-bootstrap.netlify.app/" target="_blank" class="projects__button" aria-label="Visit Real Home Ultra live site"><i class="ri-arrow-right-up-long-line"></i></a>
+                           <img src="assets/img/Real Home (clone).webp" alt="Real Home Ultra real estate website homepage" class="projects__img" width="600" height="389" loading="lazy">
+                           <a href="https://real-home-ultra-bootstrap.netlify.app/" target="_blank" rel="noopener noreferrer" class="projects__button" aria-label="Visit Real Home Ultra live site"><i class="ri-arrow-right-up-long-line"></i></a>
                         </div>
                      </article>
                      <!-- project-2  -->
@@ -217,6 +254,7 @@
                            <h3 class="projects__title">
                               Cv Maker <br>  Interactive Resume Builder
                            </h3>
+                           <span class="projects__badge">Practice Build</span>
                            <div class="projects__tags">
                               <span class="projects__tag">HTML</span>
                               <span class="projects__tag">CSS</span>
@@ -227,8 +265,8 @@
                            </p>
                         </div>
                         <div class="projects__image">
-                           <img src="assets/img/CV Maker clone.webp" alt="project-thumbnail" class="projects__img" width="600" height="389">
-                           <a href="https://cv-generator-js.netlify.app" target="_blank" class="projects__button" aria-label="Visit CV Maker live site"><i class="ri-arrow-right-up-long-line"></i></a>
+                           <img src="assets/img/CV Maker clone.webp" alt="CV Maker interactive resume builder tool" class="projects__img" width="600" height="389" loading="lazy">
+                           <a href="https://cv-generator-js.netlify.app" target="_blank" rel="noopener noreferrer" class="projects__button" aria-label="Visit CV Maker live site"><i class="ri-arrow-right-up-long-line"></i></a>
                         </div>
                      </article>
                      <!-- project-3  -->
@@ -242,6 +280,7 @@
                            <h3 class="projects__title">
                               Metal Defence <br>  Corporate Website UI
                            </h3>
+                           <span class="projects__badge">Practice Build</span>
                            <div class="projects__tags">
                               <span class="projects__tag">HTML</span>
                               <span class="projects__tag">CSS</span>
@@ -252,8 +291,8 @@
                            </p>
                         </div>
                         <div class="projects__image">
-                           <img src="assets/img/Metal Defence(clone).webp" alt="project-thumbnail" class="projects__img" width="600" height="389">
-                           <a href="https://mental-defend-flex.netlify.app" target="_blank" class="projects__button" aria-label="Visit Metal Defence live site"><i class="ri-arrow-right-up-long-line"></i></a>
+                           <img src="assets/img/Metal Defence(clone).webp" alt="Metal Defence corporate website UI" class="projects__img" width="600" height="389" loading="lazy">
+                           <a href="https://mental-defend-flex.netlify.app" target="_blank" rel="noopener noreferrer" class="projects__button" aria-label="Visit Metal Defence live site"><i class="ri-arrow-right-up-long-line"></i></a>
                         </div>
                      </article>
                      <!-- project-4  -->
@@ -267,6 +306,7 @@
                            <h3 class="projects__title">
                               CAYUGA LAKE <br> Travel &amp; Hospitality UI
                            </h3>
+                           <span class="projects__badge">Practice Build</span>
                            <div class="projects__tags">
                               <span class="projects__tag">HTML</span>
                               <span class="projects__tag">CSS</span>
@@ -276,8 +316,8 @@
                            </p>
                         </div>
                         <div class="projects__image">
-                           <img src="assets/img/CAYUGA LAKE(clone).webp" alt="project-thumbnail" class="projects__img" width="600" height="389">
-                           <a href="https://cayuga-lake-flex.netlify.app" target="_blank" class="projects__button" aria-label="Visit Cayuga Lake live site"><i class="ri-arrow-right-up-long-line"></i></a>
+                           <img src="assets/img/CAYUGA LAKE(clone).webp" alt="Cayuga Lake travel and hospitality website UI" class="projects__img" width="600" height="389" loading="lazy">
+                           <a href="https://cayuga-lake-flex.netlify.app" target="_blank" rel="noopener noreferrer" class="projects__button" aria-label="Visit Cayuga Lake live site"><i class="ri-arrow-right-up-long-line"></i></a>
                         </div>
                      </article>
                      <!-- project-5  -->
@@ -291,6 +331,7 @@
                            <h3 class="projects__title">
                               Anthony Medina <br> Personal Portfolio UI
                            </h3>
+                           <span class="projects__badge">Practice Build</span>
                            <div class="projects__tags">
                               <span class="projects__tag">HTML</span>
                               <span class="projects__tag">CSS</span>
@@ -301,8 +342,8 @@
                            </p>
                         </div>
                         <div class="projects__image">
-                           <img src="assets/img/Anthony Medina(Clone).webp" alt="project-thumbnail" class="projects__img" width="600" height="389">
-                           <a href="https://flex-anthony-medina.netlify.app" target="_blank" class="projects__button" aria-label="Visit Anthony Medina live site"><i class="ri-arrow-right-up-long-line"></i></a>
+                           <img src="assets/img/Anthony Medina(Clone).webp" alt="Anthony Medina personal portfolio website UI" class="projects__img" width="600" height="389" loading="lazy">
+                           <a href="https://flex-anthony-medina.netlify.app" target="_blank" rel="noopener noreferrer" class="projects__button" aria-label="Visit Anthony Medina live site"><i class="ri-arrow-right-up-long-line"></i></a>
                         </div>
                      </article>
                      <!-- project-6  -->
@@ -316,6 +357,7 @@
                            <h3 class="projects__title">
                               Houzez<br>  Real Estate Listings UI
                            </h3>
+                           <span class="projects__badge">Practice Build</span>
                            <div class="projects__tags">
                               <span class="projects__tag">HTML</span>
                               <span class="projects__tag">CSS</span>
@@ -327,8 +369,8 @@
                            </p>
                         </div>
                         <div class="projects__image">
-                           <img src="assets/img/Houzez(Clone).webp" alt="project-thumbnail" class="projects__img" width="600" height="389">
-                           <a href="https://houzez-bootstrap.netlify.app" target="_blank" class="projects__button" aria-label="Visit Houzez live site"><i class="ri-arrow-right-up-long-line"></i></a>
+                           <img src="assets/img/Houzez(Clone).webp" alt="Houzez real estate listings website UI" class="projects__img" width="600" height="389" loading="lazy">
+                           <a href="https://houzez-bootstrap.netlify.app" target="_blank" rel="noopener noreferrer" class="projects__button" aria-label="Visit Houzez live site"><i class="ri-arrow-right-up-long-line"></i></a>
                         </div>
                      </article>
                      <!-- project-7  -->
@@ -342,6 +384,7 @@
                            <h3 class="projects__title">
                               Focal Point Homes<br> Real Estate Website UI
                            </h3>
+                           <span class="projects__badge">Practice Build</span>
                            <div class="projects__tags">
                               <span class="projects__tag">HTML</span>
                               <span class="projects__tag">CSS</span>
@@ -351,8 +394,8 @@
                            </p>
                         </div>
                         <div class="projects__image">
-                           <img src="assets/img/Focal Point Homes(Clone).webp" alt="project-thumbnail" class="projects__img" width="600" height="389">
-                           <a href="https://focal-point-homes-flex.netlify.app" target="_blank" class="projects__button" aria-label="Visit Focal Point Homes live site"><i class="ri-arrow-right-up-long-line"></i></a>
+                           <img src="assets/img/Focal Point Homes(Clone).webp" alt="Focal Point Homes real estate website UI" class="projects__img" width="600" height="389" loading="lazy">
+                           <a href="https://focal-point-homes-flex.netlify.app" target="_blank" rel="noopener noreferrer" class="projects__button" aria-label="Visit Focal Point Homes live site"><i class="ri-arrow-right-up-long-line"></i></a>
                         </div>
                      </article>
                      <!-- project-8  -->
@@ -366,6 +409,7 @@
                            <h3 class="projects__title">
                               MC Duffers<br> Virtual Golf Landing Page
                            </h3>
+                           <span class="projects__badge">Practice Build</span>
                            <div class="projects__tags">
                               <span class="projects__tag">HTML</span>
                               <span class="projects__tag">CSS</span>
@@ -376,8 +420,8 @@
                            </p>
                         </div>
                         <div class="projects__image">
-                           <img src="assets/img/mc-duffers.webp" alt="project-thumbnail" class="projects__img" width="600" height="389">
-                           <a href="https://mcduffers-virtual-glof.netlify.app/" target="_blank" class="projects__button" aria-label="Visit MC Duffers live site"><i class="ri-arrow-right-up-long-line"></i></a>
+                           <img src="assets/img/mc-duffers.webp" alt="MC Duffers virtual golf landing page" class="projects__img" width="600" height="389" loading="lazy">
+                           <a href="mcduffers-virtual-golf.netlify.app" target="_blank" rel="noopener noreferrer" class="projects__button" aria-label="Visit MC Duffers live site"><i class="ri-arrow-right-up-long-line"></i></a>
                         </div>
                      </article>
                   </div>
@@ -387,7 +431,7 @@
          </section>
 
          <!--==================== WORK ====================-->
-         <section class="work section">
+         <section class="work section" id="work">
             <h2 class="section__title">
                <span>My Work</span> 
                <br> Experience
@@ -411,39 +455,19 @@
                         <div class="work__data">
                            <div>
                               <h3 class="work__title">
-                                 Frontend <br> Developer
+                                 Frontend Developer <br> Intern
                               </h3>
                               <h4 class="work__subtitle">
-                                 HTML, CSS, Bootstrap & Tailwind
+                                 HTML, CSS, JavaScript &amp; WordPress
                               </h4>
                               <p class="work__company">FINEWEB · Bahawalpur</p>
                            </div>
                            <p class="work__year">
-                              Aug 2024 – Dec 2024
+                              Aug 2024 – Apr 2026
                            </p>
                         </div>
                         <p class="work__description">
-                           Built responsive websites using HTML5, CSS3, Bootstrap & TailwindCSS. Focused on clean layouts and mobile-first design.
-                        </p>
-                     </div>
-                     <!--  -->
-                     <div class="work__card">
-                        <div class="work__data">
-                           <div>
-                              <h3 class="work__title">
-                                 Frontend <br> Developer
-                              </h3>
-                              <h4 class="work__subtitle">
-                                 JavaScript & WordPress
-                              </h4>
-                              <p class="work__company">FINEWEB · Bahawalpur</p>
-                           </div>
-                           <p class="work__year">
-                              Jan 2025 – Apr 2026
-                           </p>
-                        </div>
-                        <p class="work__description">
-                           Expanded skills into JavaScript (ES6) and WordPress. Developed dynamic websites and custom WordPress themes using Elementor & Elementor Pro.
+                           Started building responsive websites with HTML5, CSS3, Bootstrap &amp; Tailwind CSS, then expanded into JavaScript (ES6) and WordPress — developing dynamic websites and custom themes using Elementor &amp; Elementor Pro.
                         </p>
                      </div>
                      <!--  -->
@@ -459,13 +483,36 @@
                               <p class="work__company">SkillWays · Bahawalpur</p>
                            </div>
                            <p class="work__year">
-                              Present
+                              Apr 2026 – Sep 2026
                            </p>
                         </div>
                         <p class="work__description">
-                           <!-- FreeLance web developer handling technologies such as HTML 5, CSS 3, Bootstrap & TailwindCSS, JS(ES6) & WordPress. -->
-                           <!-- Developed responsive web applications and custom websites utilizing HTML5, CSS3, Bootstrap, Tailwind CSS, JavaScript (ES6), and WordPress -->
-                           Building responsive websites and custom WordPress solutions, including full site builds and performance optimization. Specializing in HTML5, CSS3, Bootstrap, Tailwind CSS, JavaScript (ES6), and WordPress.
+                           Built responsive websites and custom WordPress solutions, including full site builds and performance optimization. Specialized in HTML5, CSS3, Bootstrap, Tailwind CSS, JavaScript (ES6), and WordPress.
+                        </p>
+                        <blockquote class="work__quote">
+                           "Aqib is a dedicated and technically capable professional with a strong understanding of web development and a great ability to turn requirements into practical, user-friendly solutions."
+                           <span>— <a href="https://linkedin.com/in/saqlain-riaz-hashmi" target="_blank" rel="noopener noreferrer">Saqlain Riaz</a>, Franchise Owner at Enablers (ex-SkillWays)</span>
+                        </blockquote>
+                        <a href="assets/img/skillways-recommendation.webp" target="_blank" rel="noopener noreferrer" class="work__proof js-lightbox"><i class="ri-check-line"></i> View LinkedIn recommendation</a>
+                     </div>
+                     <!--  -->
+                     <div class="work__card">
+                        <div class="work__data">
+                           <div>
+                              <h3 class="work__title">
+                                 Web Design &amp; <br> Development Trainer
+                              </h3>
+                              <h4 class="work__subtitle">
+                                 HTML, CSS, WordPress 
+                              </h4>
+                              <p class="work__company">Enablers Bahawalpur (formerly SkillWays)</p>
+                           </div>
+                           <p class="work__year">
+                              Sep 2026 – Present
+                           </p>
+                        </div>
+                        <p class="work__description">
+                           Delivering Enablers' Web Design &amp; Development program — HTML, CSS (Flexbox, Grid, responsive design) and WordPress from a first webpage to launching a live online store.
                         </p>
                      </div>
                   </div>
@@ -498,7 +545,7 @@
                                  Intermediate
                               </h3>
                               <h4 class="work__subtitle">
-                                 Intermediate in Commerce(I.com)
+                                 Intermediate in Commerce (I.com)
                               </h4>
                            </div>
                            <p class="work__year">
@@ -506,7 +553,7 @@
                            </p>
                         </div>
                         <p class="work__description">
-                           Completed intermediate in Commerce(I.com) from Punjab Group of Colleges, Bahawalpur.
+                           Completed intermediate in Commerce (I.com) from Punjab Group of Colleges, Bahawalpur.
                         </p>
                      </div>
                      <!--  -->
@@ -517,7 +564,7 @@
                                  University
                               </h3>
                               <h4 class="work__subtitle">
-                                 Bachelor of Science (BS) in Commerce
+                                 Bachelor's Degree in Commerce (4-year)
                               </h4>
                            </div>
                            <p class="work__year">
@@ -525,11 +572,36 @@
                            </p>
                         </div>
                         <p class="work__description">
-                           Completed a 4‑year Bachelor of Science in Commerce degree from the Islamia University of Bahawalpur. Alongside academic studies, developed strong interest in web development and built practical skills through self-study.
+                           Completed a 4-year Bachelor's degree in Commerce from the Islamia University of Bahawalpur. Alongside academic studies, developed strong interest in web development and built practical skills through self-study.
                         </p>
                      </div>
                   </div>
                </div>
+            </div>
+         </section>
+
+                  <!--==================== CERTIFICATIONS ====================-->
+         <section class="certs section" id="certifications" id="certifications">
+            <h2 class="section__title">
+               <span>Certifications</span>
+            </h2>
+            <div class="certs__container container grid">
+               <article class="certs__card">
+                  <h3 class="certs__name">Responsive Web Design</h3>
+                  <p class="certs__issuer">freeCodeCamp</p>
+                  <p class="certs__meta">May 31, 2026 · ~300 hours</p>
+                  <a href="https://freecodecamp.org/certification/muhammad-aqibjaved-dev/responsive-web-design-v9" class="certs__link" target="_blank" rel="noopener noreferrer">
+                     Verify certificate <i class="ri-arrow-right-up-long-line"></i>
+                  </a>
+               </article>
+               <article class="certs__card">
+                  <h3 class="certs__name">JavaScript Developer</h3>
+                  <p class="certs__issuer">freeCodeCamp</p>
+                  <p class="certs__meta">September 14, 2026 · ~300 hours</p>
+                  <a href="https://freecodecamp.org/certification/muhammad-aqibjaved-dev/javascript-v9" class="certs__link" target="_blank" rel="noopener noreferrer">
+                     Verify certificate <i class="ri-arrow-right-up-long-line"></i>
+                  </a>
+               </article>
             </div>
          </section>
 
@@ -547,7 +619,7 @@
                         Frontend Development
                      </h3>
                      <p class="services__description">
-                        Website creation responsive and modern  using HTML, CSS, JavaScript, and Bootstrap with clean code and smooth user experience.
+                        Responsive, modern website creation using HTML, CSS, JavaScript, and Bootstrap with clean code and smooth user experience.
                      </p>
                   </div>
                   <div class="services__info">
@@ -623,6 +695,28 @@
                   </button>
                </div>
                <div class="contact__content grid">
+                  <div class="contact__form">
+                     <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact__form-grid">
+                        <input type="hidden" name="form-name" value="contact">
+                        <p style="display:none">
+                           <label>Don't fill this out if you're human: <input name="bot-field"></label>
+                        </p>
+                        <div class="contact__form-group">
+                           <label for="contact-name" class="contact__form-label">Name</label>
+                           <input type="text" id="contact-name" name="name" class="contact__form-input" required>
+                        </div>
+                        <div class="contact__form-group">
+                           <label for="contact-form-email" class="contact__form-label">Email</label>
+                           <input type="email" id="contact-form-email" name="email" class="contact__form-input" required>
+                        </div>
+                        <div class="contact__form-group">
+                           <label for="contact-message" class="contact__form-label">Message</label>
+                           <textarea id="contact-message" name="message" class="contact__form-input contact__form-textarea" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="button contact__form-submit">Send Message <i class="ri-arrow-right-up-long-line"></i></button>
+                        <p class="contact__form-feedback" id="contact-form-feedback" role="status" aria-live="polite"></p>
+                     </form>
+                  </div>
                   <div class="contact__info grid">
                      <div>
                         <h3 class="contact__title">
@@ -646,45 +740,45 @@
                         Social Media
                      </h3>
                      <div class="contact__links">
-                        <a href="https://linkedin.com/in/muhammad-aqibjaved-webdev" target="_blank" class="contact__link">
+                        <a href="https://linkedin.com/in/muhammad-aqibjaved-webdev" target="_blank" rel="noopener noreferrer" class="contact__link">
                            Linkedin
                            <i class="ri-arrow-right-up-long-line"></i>
                         </a>
 
-                        <a href="https://github.com/aqibarbi" target="_blank" class="contact__link">
+                        <a href="https://github.com/aqibarbi" target="_blank" rel="noopener noreferrer" class="contact__link">
                            GitHub
                            <i class="ri-arrow-right-up-long-line"></i>
                         </a>
 
-                        <!-- <a href="" target="_blank" class="contact__link">
+                        <!-- <a href="" target="_blank" rel="noopener noreferrer" class="contact__link">
                            GitLab
                            <i class="ri-arrow-right-up-long-line"></i>
                         </a> -->
 
-                        <!-- <a href="" target="_blank" class="contact__link">
+                        <!-- <a href="" target="_blank" rel="noopener noreferrer" class="contact__link">
                            <i class="ri-arrow-right-up-long-line"></i>
                         </a> -->
                      </div>
                   </div>
                   <div class="contact__write">
                      <h3 class="contact__title">
-                        Write Me & We'll Talk
+                        Let's Talk
                      </h3>
                      <div class="contact__links">
-                        <a href="" target="_blank" class="contact__link">
+                        <a href="https://api.whatsapp.com/send?phone=923056494101&text=Hello" target="_blank" rel="noopener noreferrer" class="contact__link">
                            WhatsApp
                            <i class="ri-arrow-right-up-long-line"></i>
                         </a>
-                        <!-- <a href="" target="_blank" class="contact__link">
+                        <!-- <a href="" target="_blank" rel="noopener noreferrer" class="contact__link">
                            Messenger
                            <i class="ri-arrow-right-up-long-line"></i>
                         </a> -->
 
-                        <!-- <a href="" target="_blank" class="contact__link">
+                        <!-- <a href="" target="_blank" rel="noopener noreferrer" class="contact__link">
                            Telegram
                            <i class="ri-arrow-right-up-long-line"></i>
                         </a> -->
-                        <!-- <a href="" target="_blank" class="contact__link">
+                        <!-- <a href="" target="_blank" rel="noopener noreferrer" class="contact__link">
                            Instagram
                            <i class="ri-arrow-right-up-long-line"></i>
                         </a> -->
@@ -716,12 +810,15 @@
       <script src="assets/js/scrollreveal.min.js"></script>
 
       <!--=============== ANIME JS ===============-->
-      <script src="https://cdn.jsdelivr.net/npm/animejs/lib/anime.iife.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/animejs@4.1.0/lib/anime.iife.min.js"></script>
 
       <!--=============== SWIPER JS ===============-->
       <script src="assets/js/swiper-bundle.min.js"></script>
 
       <!--=============== MAIN JS ===============-->
       <script src="assets/js/main.js"></script>
+
+      <!-- Cloudflare Web Analytics -->
+      <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "aac877d0a7c0498783d1edd43ce85c3e"}'></script><!-- End Cloudflare Web Analytics -->
    </body>
 </html>

@@ -18,6 +18,8 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+
 .ri-arrow-down-s-line:before { content: "\ea4e"; }
 .ri-arrow-right-up-long-line:before { content: "\f5de"; }
 .ri-briefcase-3-line:before { content: "\eaef"; }
@@ -27,3 +29,6 @@
 .ri-graduation-cap-line:before { content: "\f333"; }
 .ri-linkedin-box-line:before { content: "\eeb4"; }
 .ri-check-line:before { content: "\eb7b"; }
+.ri-whatsapp-line:before {
+    content: "\ea93"; /* This would be the specific icon unicode if using a webfont */
+} 

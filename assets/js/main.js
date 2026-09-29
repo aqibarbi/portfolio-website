@@ -1,30 +1,27 @@
 /*=============== HOME SPLIT TEXT ===============*/
     const { animate, text , stagger } = anime;
 
-    const { chars : chars1 } = text.split('.home__profession-1', {chars: { wrap: 'clip' },});
-    const { chars : chars2 } = text.split('.home__profession-2', {chars: { wrap: 'clip' },});
+    const animateProfessionLine = (el) => {
+        const { chars } = text.split(el, { chars: { wrap: 'clip' } });
+        animate(chars, {
+            y: [
+                { to: ['100%', '0%'] },
+                { to: '-100%', delay: 4000, ease: 'in(3)' }
+            ],
+            duration: 900,
+            ease: 'out(3)',
+            delay: stagger(80),
+            loop: true,
+        });
+    };
 
-
-    animate(chars1,  {
-    y: [
-        { to: ['100%', '0%'] },
-        { to: '-100%', delay: 4000, ease: 'in(3)' }
-    ],
-    duration: 900,
-    ease: 'out(3)',
-    delay: stagger(80),
-    loop: true,
-    })
-    animate(chars2,  {
-    y: [
-        { to: ['100%', '0%'] },
-        { to: '-100%', delay: 4000, ease: 'in(3)' }
-    ],
-    duration: 900,
-    ease: 'out(3)',
-    delay: stagger(80),
-    loop: true,
-    })
+    // Split + animate each line on its own — passing the multi-match
+    // selector directly merges all matched elements into one char set,
+    // so stagger() keeps incrementing across line boundaries and each
+    // later line starts noticeably later (and further off as lines are
+    // added). Looping per element resets the stagger per line instead.
+    document.querySelectorAll('.home__profession-1').forEach(animateProfessionLine);
+    document.querySelectorAll('.home__profession-2').forEach(animateProfessionLine);
     // const { chars : chars1 } = splitText('p', {chars: { wrap: 'clip' },});
 
 /*=============== SWIPER PROJECTS ===============*/
@@ -159,10 +156,89 @@ const sr = ScrollReveal({
     // reset:true //animation repeat
 })
 sr.reveal(`.home__image ,.projects__container,.work__container,
-            .delivered__container,.contact__container`)
+            .delivered__container,.certs__container,.contact__container`)
 sr.reveal(`.home__data`,{delay:900, origin:'bottom'})
 sr.reveal(`.home__info`,{delay:1200, origin:'bottom'})
 sr.reveal(`.home__social, .home__cv`,{delay:1500})
 sr.reveal(`.about__data`,{origin:'left'})
 sr.reveal(`.about__image`,{origin:'right'})
 sr.reveal(`.services__card`,{interval: 100})
+sr.reveal(`.certs__card`,{interval: 150})
+
+
+/*=============== IMAGE LIGHTBOX ===============*/
+const lightbox = document.getElementById('lightbox')
+const lightboxImage = document.getElementById('lightbox-image')
+const lightboxClose = document.getElementById('lightbox-close')
+const lightboxTriggers = document.querySelectorAll('.js-lightbox')
+
+// open lightbox when a trigger link is clicked
+lightboxTriggers.forEach(trigger =>{
+    trigger.addEventListener('click', (e)=>{
+        e.preventDefault() // stop the link from opening a new tab
+        lightboxImage.src = trigger.getAttribute('href')
+        lightbox.classList.add('active')
+    })
+})
+
+// close lightbox on X click, overlay click, or Escape key
+lightboxClose.addEventListener('click', ()=>{
+    lightbox.classList.remove('active')
+})
+lightbox.addEventListener('click', (e)=>{
+    if(e.target === lightbox){
+        lightbox.classList.remove('active')
+    }
+})
+document.addEventListener('keydown', (e)=>{
+    if(e.key === 'Escape'){
+        lightbox.classList.remove('active')
+    }
+})
+/*=============== CONTACT FORM (Netlify AJAX submit) ===============*/
+const contactForm = document.querySelector('form[name="contact"]')
+
+if (contactForm) {
+    const feedbackEl = document.getElementById('contact-form-feedback')
+    const submitBtn = contactForm.querySelector('.contact__form-submit')
+    const submitBtnDefaultHTML = submitBtn.innerHTML
+
+    const encodeFormData = (form) => {
+        return new URLSearchParams(new FormData(form)).toString()
+    }
+
+    const showFeedback = (message, type) => {
+        feedbackEl.textContent = message
+        feedbackEl.classList.remove('contact__form-feedback--success', 'contact__form-feedback--error')
+        feedbackEl.classList.add('show', `contact__form-feedback--${type}`)
+    }
+
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault()
+
+        submitBtn.disabled = true
+        submitBtn.innerHTML = 'Sending...'
+        feedbackEl.classList.remove('show')
+
+        fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: encodeFormData(contactForm)
+        })
+            .then((response) => {
+                if (response.ok) {
+                    showFeedback('Message sent! I\'ll get back to you soon.', 'success')
+                    contactForm.reset()
+                } else {
+                    showFeedback('Something went wrong. Please try again or email me directly.', 'error')
+                }
+            })
+            .catch(() => {
+                showFeedback('Network error. Please check your connection and try again.', 'error')
+            })
+            .finally(() => {
+                submitBtn.disabled = false
+                submitBtn.innerHTML = submitBtnDefaultHTML
+            })
+    })
+}

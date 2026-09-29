@@ -15,21 +15,20 @@ Personal portfolio site built with **Vanilla HTML, CSS and JavaScript** — no f
 - **Delivered Work** — real client project for Perth Dynamic Solutions, including client feedback and proof-of-review lightbox.
 - **Projects** — selected practice builds presented with an interactive Swiper.js carousel.
 - **Work Experience / Education** — tabbed timeline with JavaScript interactions.
+- **Certifications** — freeCodeCamp certificates with verify links.
 - **Services** — Frontend Development and WordPress Development service cards.
 - **Contact** — click-to-copy email, WhatsApp and social links.
 - **Footer** — automatically updates the current year with JavaScript.
 
 ## Features
 
-- Fully responsive design
+- Fully responsive layout (content and images)
 - Vanilla HTML, CSS & JavaScript
-- Smooth scroll animations
+- Scroll reveal animations
 - Interactive project carousel
 - Custom cursor and blob animations
 - Project lightbox
 - Copy-to-clipboard email
-- Responsive navigation
-- Mobile-friendly layout
 
 ## Tech
 
@@ -37,7 +36,7 @@ Personal portfolio site built with **Vanilla HTML, CSS and JavaScript** — no f
 - CSS3
 - Vanilla JavaScript
 - ScrollReveal.js — scroll animations
-- Anime.js — animations
+- Anime.js — text animations
 - Swiper.js — project carousel
 - Self-hosted RemixIcon subset
 - Fonts: Big Shoulders Display, IBM Plex Sans, IBM Plex Mono
@@ -50,10 +49,7 @@ portfolio-website/
 └── assets/
     ├── css/
     ├── js/
-    ├── img/
-    │   ├── PDS/
-    │   └── clone screenshots/
-    └── ...
+    └── img/
 ```
 
 ## Deployment
@@ -64,6 +60,7 @@ Live portfolio:
 
 ## Contact
 
-**Email:** maqibjaved.dev@gmail.com  
-**GitHub:** https://github.com/aqibarbi  
+**Email:** maqibjaved.dev@gmail.com
+**GitHub:** https://github.com/aqibarbi
+**LinkedIn:** https://linkedin.com/in/muhammad-aqibjaved-webdev
 **Location:** Bahawalpur, Pakistan
