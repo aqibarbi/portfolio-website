@@ -1,3 +1,6 @@
+/*=============== ENABLE SWIPER CSS (loaded non-blocking in index.html) ===============*/
+document.getElementById('swiper-css').media = 'all'
+
 /*=============== HOME SPLIT TEXT ===============*/
     const { animate, text , stagger } = anime;
 

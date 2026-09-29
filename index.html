@@ -24,16 +24,17 @@
       <link rel="apple-touch-icon" href="assets/img/favicon-180.png">
       <meta name="theme-color" content="#1B4FBD">
 
-      <!--=============== GOOGLE FONTS (parallel load, was CSS @import) ===============-->
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400..900&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+      <!--=============== FONTS (self-hosted, @font-face in styles.css) ===============-->
+      <link rel="preload" href="assets/fonts/big-shoulders-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+      <link rel="preload" href="assets/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 
       <!--=============== REMIXICONS (self-hosted subset — 9 icons this page uses) ===============-->
+      <link rel="preload" href="assets/fonts/remixicon-subset.woff2" as="font" type="font/woff2" crossorigin>
       <link rel="stylesheet" href="assets/css/remixicon-subset.css">
 
       <!--=============== SWIPER CSS ===============-->
-      <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+      <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" media="not all" id="swiper-css">
+      <noscript><link rel="stylesheet" href="assets/css/swiper-bundle.min.css"></noscript>
 
       <!--=============== CSS ===============-->
       <link rel="stylesheet" href="assets/css/styles.css">
@@ -58,7 +59,7 @@
         "knowsAbout": ["HTML", "CSS", "JavaScript", "WordPress", "Bootstrap", "Tailwind CSS", "Frontend Development", "Web Development"],
         "sameAs": [
           "https://linkedin.com/in/muhammad-aqibjaved-webdev",
-          "https://github.com/aqibarbi"
+          "https://github.com/aqibarbi",
           "https://api.whatsapp.com/send?phone=923056494101&text=Hello"
         ]
       }
@@ -114,7 +115,7 @@
                </div>
                <div class="home__image">
                   <div class="blob-animate"></div>
-                  <img src="assets/img/home-perfil.webp" alt="Muhammad Aqib Javed" class="home__perfil" width="800" height="937" fetchpriority="high">
+                  <img src="assets/img/home-perfil.webp" srcset="assets/img/home-perfil-640.webp 640w, assets/img/home-perfil.webp 800w" sizes="(min-width: 768px) 600px, 320px" alt="Muhammad Aqib Javed" class="home__perfil" width="800" height="937" fetchpriority="high">
                </div>
                <div class="home__info">
                   <p class="home__split">
@@ -150,7 +151,7 @@
                <div class="about__image">
                   <div class="blob-animate"></div>
                   <div class="blob-animate"></div>
-                  <img src="assets/img/home-perfil.webp" alt="Muhammad Aqib Javed, Frontend Developer" class="about__perfil" width="800" height="937" loading="lazy">
+                  <img src="assets/img/home-perfil.webp" srcset="assets/img/home-perfil-400.webp 400w, assets/img/home-perfil-640.webp 640w, assets/img/home-perfil.webp 800w" sizes="(min-width: 1150px) 500px, 220px" alt="Muhammad Aqib Javed, Frontend Developer" class="about__perfil" width="800" height="937" loading="lazy">
                </div>
             </div>
          </section>
@@ -165,7 +166,7 @@
                <!-- delivered-1 -->
                <article class="delivered__card">
                   <div class="delivered__image">
-                     <img src="assets/img/PerthDynamicSolutions.webp" alt="Perth Dynamic Solutions WordPress custom site homepage" width="600" height="389" loading="lazy">
+                     <img src="assets/img/PerthDynamicSolutions.webp" srcset="assets/img/PerthDynamicSolutions-400.webp 420w, assets/img/PerthDynamicSolutions.webp 600w" sizes="(min-width: 1024px) 410px, 90vw" alt="Perth Dynamic Solutions WordPress custom site homepage" width="600" height="389" loading="lazy">
                   </div>
                   <div class="delivered__number">01</div>
                   <h3 class="delivered__title">Perth Dynamic Solutions</h3>
@@ -217,7 +218,7 @@
                <div class="projects__swiper swiper">
                   <div class="swiper-wrapper">
                      <!-- project-1  -->
-                     <article class="projects__card swiper-slide ">
+                     <div class="projects__card swiper-slide ">
                         <div class="blob"></div>
                         <div class="projects__number">
                            <span class="projects__index">01</span>
@@ -239,12 +240,12 @@
                            </p>
                         </div>
                         <div class="projects__image">
-                           <img src="assets/img/Real Home (clone).webp" alt="Real Home Ultra real estate website homepage" class="projects__img" width="600" height="389" loading="lazy">
+                           <img src="assets/img/Real Home (clone).webp" srcset="assets/img/real-home-400.webp 400w, assets/img/Real%20Home%20(clone).webp 600w" sizes="(min-width: 768px) 360px, 90vw" alt="Real Home Ultra real estate website homepage" class="projects__img" width="600" height="389" loading="lazy">
                            <a href="https://real-home-ultra-bootstrap.netlify.app/" target="_blank" rel="noopener noreferrer" class="projects__button" aria-label="Visit Real Home Ultra live site"><i class="ri-arrow-right-up-long-line"></i></a>
                         </div>
-                     </article>
+                     </div>
                      <!-- project-2  -->
-                     <article class="projects__card  swiper-slide">
+                     <div class="projects__card  swiper-slide">
                         <div class="blob"></div>
                         <div class="projects__number">
                            <span class="projects__index">02</span>
@@ -265,12 +266,12 @@
                            </p>
                         </div>
                         <div class="projects__image">
-                           <img src="assets/img/CV Maker clone.webp" alt="CV Maker interactive resume builder tool" class="projects__img" width="600" height="389" loading="lazy">
+                           <img src="assets/img/CV Maker clone.webp" srcset="assets/img/cv-maker-400.webp 400w, assets/img/CV%20Maker%20clone.webp 600w" sizes="(min-width: 768px) 360px, 90vw" alt="CV Maker interactive resume builder tool" class="projects__img" width="600" height="389" loading="lazy">
                            <a href="https://cv-generator-js.netlify.app" target="_blank" rel="noopener noreferrer" class="projects__button" aria-label="Visit CV Maker live site"><i class="ri-arrow-right-up-long-line"></i></a>
                         </div>
-                     </article>
+                     </div>
                      <!-- project-3  -->
-                     <article class="projects__card swiper-slide ">
+                     <div class="projects__card swiper-slide ">
                         <div class="blob"></div>
                         <div class="projects__number">
                            <span class="projects__index">03</span>
@@ -291,12 +292,12 @@
                            </p>
                         </div>
                         <div class="projects__image">
-                           <img src="assets/img/Metal Defence(clone).webp" alt="Metal Defence corporate website UI" class="projects__img" width="600" height="389" loading="lazy">
+                           <img src="assets/img/Metal Defence(clone).webp" srcset="assets/img/metal-defence-400.webp 400w, assets/img/Metal%20Defence(clone).webp 600w" sizes="(min-width: 768px) 360px, 90vw" alt="Metal Defence corporate website UI" class="projects__img" width="600" height="389" loading="lazy">
                            <a href="https://mental-defend-flex.netlify.app" target="_blank" rel="noopener noreferrer" class="projects__button" aria-label="Visit Metal Defence live site"><i class="ri-arrow-right-up-long-line"></i></a>
                         </div>
-                     </article>
+                     </div>
                      <!-- project-4  -->
-                     <article class="projects__card swiper-slide ">
+                     <div class="projects__card swiper-slide ">
                         <div class="blob"></div>
                         <div class="projects__number">
                            <span class="projects__index">04</span>
@@ -316,12 +317,12 @@
                            </p>
                         </div>
                         <div class="projects__image">
-                           <img src="assets/img/CAYUGA LAKE(clone).webp" alt="Cayuga Lake travel and hospitality website UI" class="projects__img" width="600" height="389" loading="lazy">
+                           <img src="assets/img/CAYUGA LAKE(clone).webp" srcset="assets/img/cayuga-lake-400.webp 400w, assets/img/CAYUGA%20LAKE(clone).webp 600w" sizes="(min-width: 768px) 360px, 90vw" alt="Cayuga Lake travel and hospitality website UI" class="projects__img" width="600" height="389" loading="lazy">
                            <a href="https://cayuga-lake-flex.netlify.app" target="_blank" rel="noopener noreferrer" class="projects__button" aria-label="Visit Cayuga Lake live site"><i class="ri-arrow-right-up-long-line"></i></a>
                         </div>
-                     </article>
+                     </div>
                      <!-- project-5  -->
-                     <article class="projects__card swiper-slide ">
+                     <div class="projects__card swiper-slide ">
                         <div class="blob"></div>
                         <div class="projects__number">
                            <span class="projects__index">05</span>
@@ -342,12 +343,12 @@
                            </p>
                         </div>
                         <div class="projects__image">
-                           <img src="assets/img/Anthony Medina(Clone).webp" alt="Anthony Medina personal portfolio website UI" class="projects__img" width="600" height="389" loading="lazy">
+                           <img src="assets/img/Anthony Medina(Clone).webp" srcset="assets/img/anthony-medina-400.webp 400w, assets/img/Anthony%20Medina(Clone).webp 600w" sizes="(min-width: 768px) 360px, 90vw" alt="Anthony Medina personal portfolio website UI" class="projects__img" width="600" height="389" loading="lazy">
                            <a href="https://flex-anthony-medina.netlify.app" target="_blank" rel="noopener noreferrer" class="projects__button" aria-label="Visit Anthony Medina live site"><i class="ri-arrow-right-up-long-line"></i></a>
                         </div>
-                     </article>
+                     </div>
                      <!-- project-6  -->
-                     <article class="projects__card swiper-slide ">
+                     <div class="projects__card swiper-slide ">
                         <div class="blob"></div>
                         <div class="projects__number">
                            <span class="projects__index">06</span>
@@ -369,12 +370,12 @@
                            </p>
                         </div>
                         <div class="projects__image">
-                           <img src="assets/img/Houzez(Clone).webp" alt="Houzez real estate listings website UI" class="projects__img" width="600" height="389" loading="lazy">
+                           <img src="assets/img/Houzez(Clone).webp" srcset="assets/img/houzez-400.webp 400w, assets/img/Houzez(Clone).webp 600w" sizes="(min-width: 768px) 360px, 90vw" alt="Houzez real estate listings website UI" class="projects__img" width="600" height="389" loading="lazy">
                            <a href="https://houzez-bootstrap.netlify.app" target="_blank" rel="noopener noreferrer" class="projects__button" aria-label="Visit Houzez live site"><i class="ri-arrow-right-up-long-line"></i></a>
                         </div>
-                     </article>
+                     </div>
                      <!-- project-7  -->
-                     <article class="projects__card swiper-slide ">
+                     <div class="projects__card swiper-slide ">
                         <div class="blob"></div>
                         <div class="projects__number">
                            <span class="projects__index">07</span>
@@ -394,12 +395,12 @@
                            </p>
                         </div>
                         <div class="projects__image">
-                           <img src="assets/img/Focal Point Homes(Clone).webp" alt="Focal Point Homes real estate website UI" class="projects__img" width="600" height="389" loading="lazy">
+                           <img src="assets/img/Focal Point Homes(Clone).webp" srcset="assets/img/focal-point-400.webp 400w, assets/img/Focal%20Point%20Homes(Clone).webp 600w" sizes="(min-width: 768px) 360px, 90vw" alt="Focal Point Homes real estate website UI" class="projects__img" width="600" height="389" loading="lazy">
                            <a href="https://focal-point-homes-flex.netlify.app" target="_blank" rel="noopener noreferrer" class="projects__button" aria-label="Visit Focal Point Homes live site"><i class="ri-arrow-right-up-long-line"></i></a>
                         </div>
-                     </article>
+                     </div>
                      <!-- project-8  -->
-                     <article class="projects__card swiper-slide ">
+                     <div class="projects__card swiper-slide ">
                         <div class="blob"></div>
                         <div class="projects__number">
                            <span class="projects__index">08</span>
@@ -420,10 +421,10 @@
                            </p>
                         </div>
                         <div class="projects__image">
-                           <img src="assets/img/mc-duffers.webp" alt="MC Duffers virtual golf landing page" class="projects__img" width="600" height="389" loading="lazy">
-                           <a href="mcduffers-virtual-golf.netlify.app" target="_blank" rel="noopener noreferrer" class="projects__button" aria-label="Visit MC Duffers live site"><i class="ri-arrow-right-up-long-line"></i></a>
+                           <img src="assets/img/mc-duffers.webp" srcset="assets/img/mc-duffers-400.webp 400w, assets/img/mc-duffers.webp 600w" sizes="(min-width: 768px) 360px, 90vw" alt="MC Duffers virtual golf landing page" class="projects__img" width="600" height="389" loading="lazy">
+                           <a href="https://mcduffers-virtual-golf.netlify.app" target="_blank" rel="noopener noreferrer" class="projects__button" aria-label="Visit MC Duffers live site"><i class="ri-arrow-right-up-long-line"></i></a>
                         </div>
-                     </article>
+                     </div>
                   </div>
                   <div class="swiper-pagination"></div>
                </div>
@@ -581,7 +582,7 @@
          </section>
 
                   <!--==================== CERTIFICATIONS ====================-->
-         <section class="certs section" id="certifications" id="certifications">
+         <section class="certs section" id="certifications">
             <h2 class="section__title">
                <span>Certifications</span>
             </h2>
@@ -810,7 +811,7 @@
       <script src="assets/js/scrollreveal.min.js"></script>
 
       <!--=============== ANIME JS ===============-->
-      <script src="https://cdn.jsdelivr.net/npm/animejs@4.1.0/lib/anime.iife.min.js"></script>
+      <script src="assets/js/anime.iife.min.js"></script>
 
       <!--=============== SWIPER JS ===============-->
       <script src="assets/js/swiper-bundle.min.js"></script>

@@ -11,10 +11,10 @@ Muhammad Aqib Javed is a frontend and WordPress developer with 2+ years of exper
 - Website bug fixes and maintenance
 
 ## Links
-- Portfolio: https://portfolio-muhammad-aqibjaved.netlify.app/
-- Resume: https://cv-aqib-javed.netlify.app/
-- LinkedIn: https://linkedin.com/in/muhammad-aqibjaved-webdev
-- GitHub: https://github.com/aqibarbi
+- [Portfolio](https://portfolio-muhammad-aqibjaved.netlify.app/)
+- [Resume](https://cv-aqib-javed.netlify.app/)
+- [LinkedIn](https://linkedin.com/in/muhammad-aqibjaved-webdev)
+- [GitHub](https://github.com/aqibarbi)
 
 ## Contact
 Available for freelance web development projects. Reach out via LinkedIn or the contact form on the portfolio site.

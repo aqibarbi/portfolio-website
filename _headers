@@ -1,6 +1,10 @@
+# CSP note: the sha256 hash in script-src and "data:" in font-src exist only because
+# Netlify injects its own /scripts/hud script into this site (not part of this repo).
+# That script uses one inline script + a data-URI font, which the CSP blocked and
+# PageSpeed counted as console errors. If HUD is turned off in Netlify, delete both.
 /*
   X-Frame-Options: SAMEORIGIN
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://cloudflareinsights.com
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-mTJ4cJaTm2Gw95GeXEpZdvEEY9ybh6FZu1bwcNE7QlY='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data:; connect-src 'self' https://cloudflareinsights.com
