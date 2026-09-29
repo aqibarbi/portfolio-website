@@ -865,6 +865,56 @@ button:focus-visible{
   background-color: var(--first-color);
   transition: opacity .4s;
 }
+/*=============== SWIPER ULTIMATE PRODUCTION LOCK ===============*/
+
+/* 1. Fully hide the wrapper structure before Swiper boots up */
+.swiper:not(.swiper-initialized) .swiper-wrapper,
+.swiper-container:not(.swiper-initialized) .swiper-wrapper,
+.swiper:not(.swiper-initialized) .swiper-slide,
+.swiper-container:not(.swiper-initialized) .swiper-slide {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  height: 0 !important;
+}
+
+/* 2. Lock a fixed vertical container layout space */
+.swiper,
+.swiper-container {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 420px; 
+  position: relative;
+  overflow: hidden;
+}
+
+/* 3. Match Swiper's desktop spacing to remove the micro 0.033 gap shift */
+.swiper-slide {
+  margin-right: 24px !important;
+  box-sizing: border-box;
+}
+
+/* 4. Smoothly display the horizontal row structure once calculations finish */
+.swiper.swiper-initialized .swiper-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* 5. Keep slider display images properly responsive and stable */
+.projects__card img {
+  width: 100%;
+  aspect-ratio: 16 / 9; 
+  object-fit: cover;
+  display: block;
+  background-color: var(--container-color);
+}
+
+
+
+
 
 /*=============== WORK ===============*/
 .work__tabs{
