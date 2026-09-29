@@ -809,43 +809,45 @@ button:focus-visible{
   background-color: var(--first-color);
   transition: opacity .4s;
 }
-/*=============== SWIPER CORE STRUCTURAL FIX ===============*/
+/*=============== SWIPER ULTIMATE CLS FIX ===============*/
 
-/* 1. Prevents horizontal jumping by forcing a row layout immediately */
-.swiper-wrapper {
+/* 1. Hide ALL slides completely before Swiper initializes so they can't shift or jump */
+.swiper:not(.swiper-initialized) .swiper-wrapper,
+.swiper-container:not(.swiper-initialized) .swiper-wrapper,
+.swiper:not(.swiper-initialized) .swiper-slide,
+.swiper-container:not(.swiper-initialized) .swiper-slide {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+/* 2. Lock a fixed loading area height so the page structure is perfectly stable */
+.swiper,
+.swiper-container,
+#projects .container {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 450px; 
+  position: relative;
+  overflow: hidden;
+}
+
+/* 3. Once Swiper completes initialization, smoothly reveal the correctly-placed layout row */
+.swiper.swiper-initialized .swiper-wrapper {
   display: flex !important;
   flex-direction: row !important;
   flex-wrap: nowrap !important;
-  align-items: stretch !important;
-  will-change: transform;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
-/* 2. Locks sizing constraints on the container before JS mounts */
-.swiper,
-.swiper-container {
-  width: 100% !important;
-  max-width: 100% !important;
-  overflow: hidden !important;
-  position: relative;
-  min-height: 420px; 
-}
-
-/* 3. Stabilizes widths of cards before Swiper loads */
-.swiper-slide {
+/* 4. Ensure individual slides behave accurately within the initialized row */
+.swiper-initialized .swiper-slide {
   flex-shrink: 0 !important;
-  width: 100%;
-  height: auto;
   box-sizing: border-box;
 }
 
-/* 4. Fixes the exact "prev" slide jump from your screenshot */
-.swiper-slide-prev,
-.swiper-slide-duplicate {
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-}
-
-/* 5. Keeps images stable while loading */
+/* 5. Keep images from expanding or shifting vertically */
 .projects__card img {
   width: 100%;
   aspect-ratio: 16 / 9; 
@@ -853,6 +855,7 @@ button:focus-visible{
   display: block;
   background-color: var(--container-color);
 }
+
 
 
 
