@@ -811,36 +811,46 @@ button:focus-visible{
 }
 /*=============== SWIPER CLS FIX ===============*/
 
-/* 1. Prevents the container from collapsing before Swiper initializes */
+/* 1. Force the parent swiper wrapper to render as a horizontal row immediately */
+.swiper-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  will-change: transform;
+}
+
+/* 2. Stabilize slider container width and hide uninitialized jumping */
 .swiper,
 .swiper-container {
   width: 100%;
-  min-height: 380px;
+  overflow: hidden;
+  min-height: 380px; 
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.2s ease;
 }
 
-/* 2. Smoothly reveals the slider once Swiper is fully loaded */
+/* 3. Reveal the container once initialized */
 .swiper.swiper-initialized,
 .swiper-container.swiper-initialized {
   opacity: 1;
 }
 
-/* 3. Locks down layout shifting occurring on slide elements */
+/* 4. Prevent slides from stacking or shrinking horizontally before JS loads */
 article.projects__card.swiper-slide {
-  display: flex;
-  flex-direction: column;
+  flex-shrink: 0 !important;
+  width: 100%;
   height: 100%; 
-  overflow: hidden;
+  box-sizing: border-box;
 }
 
-/* 4. Reserves space for the image before it loads so the page doesn't jump */
+/* 5. Keep image proportions locked */
 .projects__card img {
   width: 100%;
   aspect-ratio: 16 / 9; 
   object-fit: cover;
-  background-color: var(--container-color); 
+  background-color: var(--container-color);
 }
+
 
 /*=============== WORK ===============*/
 .work__tabs{
