@@ -205,6 +205,16 @@ if (contactForm) {
     const feedbackEl = document.getElementById('contact-form-feedback')
     const submitBtn = contactForm.querySelector('.contact__form-submit')
     const submitBtnDefaultHTML = submitBtn.innerHTML
+    const subjectInput = document.getElementById('contact-subject')
+    const nameInput = document.getElementById('contact-name')
+
+    // subject line = "New portfolio message from <name>"
+    nameInput.addEventListener('input', () => {
+        const name = nameInput.value.trim()
+        subjectInput.value = name
+            ? `New portfolio message from ${name}`
+            : 'New portfolio message'
+    })
 
     const encodeFormData = (form) => {
         return new URLSearchParams(new FormData(form)).toString()
@@ -232,6 +242,7 @@ if (contactForm) {
                 if (response.ok) {
                     showFeedback('Message sent! I\'ll get back to you soon.', 'success')
                     contactForm.reset()
+                    subjectInput.value = 'New portfolio message'
                 } else {
                     showFeedback('Something went wrong. Please try again or email me directly.', 'error')
                 }
