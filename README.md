@@ -13,7 +13,7 @@ Personal portfolio site built with **Vanilla HTML, CSS and JavaScript** — no f
 - **Home** — intro, profession rotator, social links and resume link.
 - **About** — short bio and resume link.
 - **Delivered Work** — real client project for Perth Dynamic Solutions, including client feedback and proof-of-review lightbox.
-- **Projects** — selected practice builds presented with an interactive Swiper.js carousel.
+- **Projects** — selected practice builds presented with an vanilla JS scroll-snap carousel.
 - **Work Experience / Education** — tabbed timeline with JavaScript interactions.
 - **Certifications** — freeCodeCamp certificates with verify links.
 - **Services** — Frontend Development and WordPress Development service cards.
@@ -37,7 +37,7 @@ Personal portfolio site built with **Vanilla HTML, CSS and JavaScript** — no f
 - Vanilla JavaScript
 - ScrollReveal.js — scroll animations
 - Anime.js — text animations
-- Swiper.js — project carousel
+- Vanilla JS — project carousel (scroll-snap)
 - Self-hosted RemixIcon subset
 - Fonts: Big Shoulders Display, IBM Plex Sans, IBM Plex Mono
 

@@ -724,6 +724,142 @@ button:focus-visible{
 }
 
 /*=============== PROJECTS ===============*/
+.projects .section__title{
+  text-align: inherit;
+  margin-left: 1.5rem;
+  margin-bottom: .75rem;
+}
+.projects .section__title::before{
+  margin-inline: 0;
+}
+.projects__subtitle{
+  font-size: var(--small-font-size);
+  color: var(--text-color-light);
+  margin-left: 1.5rem;
+  margin-bottom: 2.25rem;
+}
+.projects__card{
+  position: relative;
+  background-color: var(--container-color);
+  border: 1px solid var(--color-line);
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-card);
+  transition: box-shadow .35s var(--ease), border-color .35s var(--ease);
+}
+.projects__card:hover{
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--color-indigo);
+}
+.projects__card .projects__img{
+  transition: transform .5s var(--ease);
+}
+.projects__card:hover .projects__img{
+  transform: scale(1.04);
+}
+.projects__card .blob{
+  z-index: 0;
+  right: -7.75rem;
+  bottom: 0;
+}
+.projects__number, .projects__data, .projects__image{
+  position: relative;
+  z-index: 1;
+}
+.projects__number{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--mono-font);
+}
+.projects__number .projects__index{
+  font-size: var(--biggest-font-size);
+  font-family: var(--mono-font);
+  font-weight: var(--font-medium);
+  color: var(--first-color);
+}
+.projects__number .projects__label{
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-regular);
+  font-family: var(--mono-font);
+  color: var(--text-color-light);
+}
+.projects__data{
+  margin: 2rem ;
+}
+.projects__title{
+  font-size: var(--h2-font-size);
+  margin-bottom: 1rem;
+}
+.projects__badge{
+  display: inline-block;
+  font-family: var(--mono-font);
+  font-size: var(--smaller-font-size);
+  color: var(--color-amber);
+  background-color: color-mix(in srgb, var(--color-amber) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-amber) 35%, transparent);
+  border-radius: .3rem;
+  padding: .15rem .5rem;
+  margin-bottom: 1rem;
+}
+.projects__tags{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  margin-bottom: 1rem;
+}
+.projects__tag{
+  font-family: var(--mono-font);
+  font-size: var(--smaller-font-size);
+  color: var(--text-color);
+  background-color: color-mix(in srgb, var(--color-indigo) 6%, transparent);
+  border: 1px solid var(--color-line);
+  border-radius: .3rem;
+  padding: .15rem .5rem;
+}
+.projects__description{
+  font-size: var(--small-font-size);
+}
+.projects__img{
+  border-radius: .5rem;
+}
+.projects__button{
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  background-color: var(--body-color);
+  border: 2px solid var(--color-ink);
+  border-radius: .4rem;
+  color: var(--title-color);
+  font-size: 1.5rem;
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  transition: background-color .3s, color .3s, opacity .4s;
+  opacity: 0;
+  pointer-events: none;
+}
+.projects__button:hover{
+  background-color: var(--color-ink);
+  color: var(--body-color);
+}
+.projects__image:hover .projects__button{
+    opacity: 1;
+    pointer-events: initial;
+}
+.projects__card img{
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  background-color: var(--container-color);
+}
+
 /*=============== PROJECTS SLIDER (vanilla, scroll-snap) ===============*/
 .projects__slider{
   position: relative;
@@ -785,15 +921,6 @@ button:focus-visible{
 /* touch: no hover, show visit button always */
 @media (hover: none){
   .projects__button{ opacity: 1; pointer-events: initial; }
-}
-
-/* keep: image rule from old block */
-.projects__card img{
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  display: block;
-  background-color: var(--container-color);
 }
 
 /*=============== WORK ===============*/
@@ -1282,8 +1409,8 @@ button:focus-visible{
     text-align: center;
     margin-left: 0;
   }
-  .projects__card{
-    width: 350px;
+  .projects__slide{
+    flex-basis: min(100%, 350px);
   }
   .delivered__container{
     grid-template-columns: 460px;
@@ -1451,14 +1578,13 @@ button:focus-visible{
   .projects{
     padding-block: 9rem 4rem;
   }
-  .projects__swiper{
-    padding-bottom: 4rem;
-  }
   .projects__container{
     max-width: 1380px;
   }
+  .projects__slide{
+    flex-basis: min(100%, 440px);
+  }
   .projects__card{
-    width: 440px;
     padding: 2.5rem;
     border-radius: 1.25rem;
   }
