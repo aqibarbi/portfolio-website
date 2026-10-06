@@ -724,197 +724,77 @@ button:focus-visible{
 }
 
 /*=============== PROJECTS ===============*/
-.projects .section__title{
-  text-align: inherit;
-  margin-left: 1.5rem;
-  margin-bottom: .75rem;
-}
-.projects .section__title::before{
-  margin-inline: 0;
-}
-.projects__subtitle{
-  font-size: var(--small-font-size);
-  color: var(--text-color-light);
-  margin-left: 1.5rem;
-  margin-bottom: 2.25rem;
-}
-.projects__card{
+/*=============== PROJECTS SLIDER (vanilla, scroll-snap) ===============*/
+.projects__slider{
   position: relative;
-  background-color: var(--container-color);
-  border: 1px solid var(--color-line);
-  padding: 1.5rem;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-shadow: var(--shadow-card);
-  transition: box-shadow .35s var(--ease), border-color .35s var(--ease);
-}
-.projects__card:hover{
-  box-shadow: var(--shadow-card-hover);
-  border-color: var(--color-indigo);
-}
-.projects__card .projects__img{
-  transition: transform .5s var(--ease);
-}
-.projects__card:hover .projects__img{
-  transform: scale(1.04);
-}
-.projects__card .blob{
-  z-index: 0;
-  right: -7.75rem;
-  bottom: 0;
-}
-.projects__number, .projects__data, .projects__image{
-  position: relative;
-  z-index: 1;
-}
-.projects__number{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-family: var(--mono-font);
-}
-.projects__number .projects__index{
-  font-size: var(--biggest-font-size);
-  font-family: var(--mono-font);
-  font-weight: var(--font-medium);
-  color: var(--first-color);
-}
-.projects__number .projects__label{
-  font-size: var(--h3-font-size);
-  font-weight: var(--font-regular);
-  font-family: var(--mono-font);
-  color: var(--text-color-light);
-}
-.projects__data{
-  margin: 2rem ;
-}
-.projects__title{
-  font-size: var(--h2-font-size);
-  margin-bottom: 1rem;
-}
-.projects__badge{
-  display: inline-block;
-  font-family: var(--mono-font);
-  font-size: var(--smaller-font-size);
-  color: var(--color-amber);
-  background-color: color-mix(in srgb, var(--color-amber) 10%, transparent);
-  border: 1px solid color-mix(in srgb, var(--color-amber) 35%, transparent);
-  border-radius: .3rem;
-  padding: .15rem .5rem;
-  margin-bottom: 1rem;
-}
-.projects__tags{
-  display: flex;
-  flex-wrap: wrap;
-  gap: .4rem;
-  margin-bottom: 1rem;
-}
-.projects__tag{
-  font-family: var(--mono-font);
-  font-size: var(--smaller-font-size);
-  color: var(--text-color);
-  background-color: color-mix(in srgb, var(--color-indigo) 6%, transparent);
-  border: 1px solid var(--color-line);
-  border-radius: .3rem;
-  padding: .15rem .5rem;
-}
-.projects__description{
-  font-size: var(--small-font-size);
-}
-.projects__img{
-  border-radius: .5rem;
-}
-.projects__button{
-  display: grid;
-  place-items: center;
-  width: 48px;
-  height: 48px;
-  background-color: var(--body-color);
-  border: 2px solid var(--color-ink);
-  border-radius: .4rem;
-  color: var(--title-color);
-  font-size: 1.5rem;
-  position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  transition: background-color .3s, color .3s, opacity .4s;
-  opacity: 0;
-  pointer-events: none;
-}
-.projects__button:hover{
-  background-color: var(--color-ink);
-  color: var(--body-color);
-}
-.projects__image:hover .projects__button{
-    opacity: 1;
-    pointer-events: initial;
-}
-
-/* Swiper class */
-.projects__swiper{
-  margin-inline: initial;
-  padding-bottom: 2rem;
-}
-.projects__swiper .swiper-pagination-bullets{
-  bottom: 0;
-}
-.projects .swiper-pagination-bullet{
-  background-color: var(--first-color);
-  transition: opacity .4s;
-}
-/*=============== SWIPER ULTIMATE PRODUCTION LOCK ===============*/
-
-/* 1. Fully hide the wrapper structure before Swiper boots up */
-.swiper:not(.swiper-initialized) .swiper-wrapper,
-.swiper-container:not(.swiper-initialized) .swiper-wrapper,
-.swiper:not(.swiper-initialized) .swiper-slide,
-.swiper-container:not(.swiper-initialized) .swiper-slide {
-  display: none !important;
-  opacity: 0 !important;
-  visibility: hidden !important;
-  height: 0 !important;
-}
-
-/* 2. Lock a fixed vertical container layout space */
-.swiper,
-.swiper-container {
-  width: 100% !important;
-  max-width: 100% !important;
-  min-height: 420px; 
-  position: relative;
-  overflow: hidden;
-}
-
-/* 3. Match Swiper's desktop spacing to remove the micro 0.033 gap shift */
-.swiper-slide {
-  margin-right: 24px !important;
-  box-sizing: border-box;
-}
-
-/* 4. Smoothly display the horizontal row structure once calculations finish */
-.swiper.swiper-initialized .swiper-wrapper {
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: nowrap !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-/* 5. Keep slider display images properly responsive and stable */
-.projects__card img {
   width: 100%;
-  aspect-ratio: 16 / 9; 
+  min-width: 0;            /* stops grid parent from blowing out wider than viewport */
+}
+.projects__track{
+  position: relative;      /* slide.offsetLeft reference */
+  display: flex;
+  gap: 24px;
+  padding-block: .5rem 1rem; /* room for card shadow, overflow clips it otherwise */
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  cursor: grab;
+}
+.projects__track::-webkit-scrollbar{ display: none; }
+.projects__track:focus-visible{
+  outline: 2px solid var(--first-color);
+  outline-offset: 4px;
+}
+.projects__track.is-dragging{
+  cursor: grabbing;
+  scroll-snap-type: none;
+  user-select: none;
+}
+.projects__slide{
+  flex: 0 0 min(100%, 420px);
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+/* dots */
+.projects__dots{
+  display: flex;
+  justify-content: center;
+  gap: .5rem;
+  margin-top: .5rem;
+}
+.projects__dot{
+  position: relative;
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: var(--first-color);
+  opacity: .25;
+  cursor: pointer;
+  transition: opacity .4s, transform .4s;
+}
+.projects__dot::after{ content: ""; position: absolute; inset: -8px; } /* bigger tap area */
+.projects__dot.is-active{
+  opacity: 1;
+  transform: scale(1.25);
+}
+
+/* touch: no hover, show visit button always */
+@media (hover: none){
+  .projects__button{ opacity: 1; pointer-events: initial; }
+}
+
+/* keep: image rule from old block */
+.projects__card img{
+  width: 100%;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   display: block;
   background-color: var(--container-color);
 }
-
-
-
-
 
 /*=============== WORK ===============*/
 .work__tabs{
