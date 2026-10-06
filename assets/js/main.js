@@ -27,24 +27,147 @@ document.getElementById('swiper-css').media = 'all'
     document.querySelectorAll('.home__profession-2').forEach(animateProfessionLine);
     // const { chars : chars1 } = splitText('p', {chars: { wrap: 'clip' },});
 
-/*=============== SWIPER PROJECTS ===============*/
-const swiper = new Swiper('.projects__swiper', {
-    // Optional parameters
-    loop: true,
-    spaceBetween: 24,
-    slidesPerView: 'auto',
-    grabCursor: true,
-    speed:600,
-    // If we need pagination
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
+/*=============== PROJECTS slider ===============*/
+const initSlider = (root, { delay = 3000 } = {}) => {
+  const track = root.querySelector('.projects__track');
+  const dotsEl = root.querySelector('.projects__dots');
+  const slides = [...track.children];
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  let index = 0;
+  let timer = null;
+  let inView = false;
+  let hovering = false;
+  let raf = 0;
+
+  // drag state
+  let pressed = false;
+  let dragging = false;
+  let moved = false;
+  let startX = 0;
+  let startLeft = 0;
+
+  // no native image/link ghost-drag
+  track.querySelectorAll('img, a').forEach((el) => (el.draggable = false));
+
+  /* ---------- dots ---------- */
+  const dots = slides.map((_, i) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'projects__dot';
+    btn.setAttribute('aria-label', `Go to project ${i + 1}`);
+    btn.addEventListener('click', () => goTo(i));
+    dotsEl.append(btn);
+    return btn;
+  });
+
+  const setActive = (i) => {
+    index = i;
+    dots.forEach((d, n) => d.classList.toggle('is-active', n === i));
+  };
+
+  /* ---------- navigation ---------- */
+  const atEnd = () =>
+    Math.ceil(track.scrollLeft + track.clientWidth) >= track.scrollWidth - 1;
+
+  const goTo = (i) => {
+    const n = (i + slides.length) % slides.length;
+    track.scrollTo({
+      left: slides[n].offsetLeft,
+      behavior: reduceMotion ? 'auto' : 'smooth',
+    });
+  };
+
+  const next = () => (atEnd() ? goTo(0) : goTo(index + 1));
+
+  // active dot follows scroll position (swipe, drag, autoplay, keyboard)
+  track.addEventListener(
+    'scroll',
+    () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const x = track.scrollLeft;
+        const closest = atEnd()
+          ? slides.length - 1
+          : slides.reduce(
+              (best, s, n) =>
+                Math.abs(s.offsetLeft - x) < Math.abs(slides[best].offsetLeft - x) ? n : best,
+              0
+            );
+        setActive(closest);
+      });
     },
-    autoplay:{
-        delay: 3000,
-        disableOnInteraction: false,
+    { passive: true }
+  );
+
+  /* ---------- autoplay ---------- */
+  const stop = () => {
+    clearInterval(timer);
+    timer = null;
+  };
+  const play = () => {
+    if (!timer && !reduceMotion) timer = setInterval(next, delay);
+  };
+  const sync = () => (inView && !hovering && !document.hidden ? play() : stop());
+
+  new IntersectionObserver(([entry]) => {
+    inView = entry.isIntersecting;
+    sync();
+  }, { threshold: 0.25 }).observe(root);
+
+  root.addEventListener('mouseenter', () => { hovering = true; sync(); });
+  root.addEventListener('mouseleave', () => { hovering = false; sync(); });
+  root.addEventListener('focusin', () => { hovering = true; sync(); });
+  root.addEventListener('focusout', () => { hovering = false; sync(); });
+  document.addEventListener('visibilitychange', sync);
+
+  /* ---------- mouse drag (touch uses native scroll) ---------- */
+  track.addEventListener('pointerdown', (e) => {
+    if (e.pointerType !== 'mouse' || e.button !== 0) return;
+    pressed = true;
+    moved = false;
+    startX = e.clientX;
+    startLeft = track.scrollLeft;
+  });
+
+  track.addEventListener('pointermove', (e) => {
+    if (!pressed) return;
+    const dx = e.clientX - startX;
+    if (!dragging && Math.abs(dx) > 5) {
+      dragging = true;
+      moved = true;
+      track.classList.add('is-dragging');
+      track.setPointerCapture(e.pointerId); // capture only after threshold, plain clicks stay intact
     }
-});
+    if (dragging) track.scrollLeft = startLeft - dx;
+  });
+
+  const endDrag = () => {
+    pressed = false;
+    if (!dragging) return;
+    dragging = false;
+    track.classList.remove('is-dragging'); // snap re-enables, settles on nearest card
+  };
+  track.addEventListener('pointerup', endDrag);
+  track.addEventListener('pointercancel', endDrag);
+
+  // block link click right after a drag
+  track.addEventListener(
+    'click',
+    (e) => {
+      if (moved) {
+        e.preventDefault();
+        e.stopPropagation();
+        moved = false;
+      }
+    },
+    true
+  );
+
+  setActive(0);
+};
+
+document.querySelectorAll('[data-slider]').forEach((el) => initSlider(el, { delay: 3000 }));
 
 /*=============== WORK TABS ===============*/
 const tabs= document.querySelectorAll('[data-target]'),
