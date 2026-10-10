@@ -272,9 +272,7 @@ button:focus-visible{
   border-radius: 50%;
   mix-blend-mode: difference ;
   pointer-events: none;
-  transition: .2s ease-out,
-              left .2s ease-out,
-              top .2s ease-out,
+  transition: transform .2s ease-out,
               width .3s,
               height .3s;
 }
@@ -1688,7 +1686,3 @@ button:focus-visible{
     display: none;
   }
 }
-
-
-
-

@@ -15,11 +15,6 @@
         });
     };
 
-    // Split + animate each line on its own — passing the multi-match
-    // selector directly merges all matched elements into one char set,
-    // so stagger() keeps incrementing across line boundaries and each
-    // later line starts noticeably later (and further off as lines are
-    // added). Looping per element resets the stagger per line instead.
     document.querySelectorAll('.home__profession-1').forEach(animateProfessionLine);
     document.querySelectorAll('.home__profession-2').forEach(animateProfessionLine);
     // const { chars : chars1 } = splitText('p', {chars: { wrap: 'clip' },});
@@ -246,9 +241,8 @@ const cursor =document.querySelector('.cursor')
 let mouseX =0 , mouseY =0 // store mouse position
 
 const cursorMove = () =>{
-    cursor.style.left = `${mouseX}px`
-    cursor.style.top = `${mouseY}px`
-    cursor.style.transform = `translate(-50% , -50%)`
+    // transform only: animating left/top is counted as layout shift (CLS)
+    cursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`
     // update the cursor animation
     requestAnimationFrame(cursorMove)
 }
