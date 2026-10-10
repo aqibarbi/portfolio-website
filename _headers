@@ -2,9 +2,12 @@
 # Netlify injects its own /scripts/hud script into this site (not part of this repo).
 # That script uses one inline script + a data-URI font, which the CSP blocked and
 # PageSpeed counted as console errors. If HUD is turned off in Netlify, delete both.
+# GTM/GA: googletagmanager.com in script-src and the Google hosts in img-src/connect-src
+# are for the gtag snippet in index.html. The second sha256 in script-src is that inline
+# gtag block. If you edit that inline script, recompute the hash (console shows it on block).
 /*
   X-Frame-Options: SAMEORIGIN
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-mTJ4cJaTm2Gw95GeXEpZdvEEY9ybh6FZu1bwcNE7QlY='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data:; connect-src 'self' https://cloudflareinsights.com
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com https://www.googletagmanager.com 'sha256-mTJ4cJaTm2Gw95GeXEpZdvEEY9ybh6FZu1bwcNE7QlY=' 'sha256-mWUWC285NL4bVT6ZHa2eXfTpgmAS64ct/KRqHMhX508='; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://cloudflareinsights.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com

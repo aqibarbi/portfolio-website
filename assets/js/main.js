@@ -272,7 +272,7 @@ const sr = ScrollReveal({
     delay:300,
     // reset:true //animation repeat
 })
-sr.reveal(`.home__image ,.projects__container,.work__container,
+sr.reveal(`.projects__container,.work__container,
             .delivered__container,.certs__container,.contact__container`)
 sr.reveal(`.home__data`,{delay:900, origin:'bottom'})
 sr.reveal(`.home__info`,{delay:1200, origin:'bottom'})
