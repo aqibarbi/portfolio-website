@@ -6,7 +6,7 @@ Personal portfolio site built with **Vanilla HTML, CSS and JavaScript** — no f
 
 ## Live Demo
 
-**[View Live Portfolio](https://portfolio-muhammad-aqibjaved.netlify.app/)**
+**[View Live Portfolio](https://portfolio-muhammad-aqibjaved-old.netlify.app/)**
 
 ## Sections
 
